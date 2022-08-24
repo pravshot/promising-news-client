@@ -14,14 +14,61 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: rgb(221, 240, 209);
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: calc(12px + 2vmax);
+  color: black;
+}
+.header-desc {
+  font-size: calc(5px + 1vmax);
+  color: inherit;
+}
+
+.App-main {
+  padding: 5vmin;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5vh;
+  margin-right: 5vh;
+}
+
+.news {
+  color:rgb(18, 57, 5);
+}
+
+.news-filter-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.news-filter-buttons input {
+  margin-left: 10px;
+}
+.news-filter-buttons label {
+  margin-left: 10px;
+}
+
+.news-entry {
+  margin-bottom: 3em;
+  color:rgb(20, 57, 58);
+  
+}
+
+.news-entry a:link {
+  color:inherit;
+  text-decoration: none;
+}
+.news-entry a:hover {
+  color:rgb(25, 127, 199);
+  text-decoration: none;
 }
 
 .App-link {
