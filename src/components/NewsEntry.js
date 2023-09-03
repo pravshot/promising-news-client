@@ -1,21 +1,32 @@
-function NewsEntry(props) {
-    const showMetaInfo = () => {
-        const author = props.author ? props.author : 'Unknown';
-        const date = props.date ? props.date.split('T')[0] : 'Unknown';
-        const publication = props.publication ? props.publication.toUpperCase() : 'Unknown';
-        const positivity_score = props.positivity_score ? props.positivity_score.toFixed(3) : 'Unknown';
-        return (
-            <p>Author: <b>{author}</b> | Date Published: <b>{date}</b> | Source: <b>{publication}</b> | Positivity Score: <b>{positivity_score}</b></p>
-        )
-    }
+import style from "./NewsEntry.module.css";
 
+function NewsEntry({
+  title,
+  author,
+  description,
+  date,
+  url,
+  image_url,
+  publication,
+}) {
   return (
-    <div className="news-entry">
-      <a href={props.url}><h3>{props.title}</h3></a>
-      {showMetaInfo()}
-      <small>{props.description}</small>
+    <div className={style.newsEntry} onClick={() => window.open(url, "_blank")}>
+      <img
+        src={image_url || "client/public/placeholder-image.jpg"}
+        alt={title}
+        className={style.newsImage}
+      />
+      <h2 className={style.newsTitle}>{title}</h2>
+      <div className={style.newsInfo}>
+        {author && <p className={style.newsAuthor}>{author}</p>}
+        <p className={style.newsDate}>{date.slice(5)}</p>
+        {publication && (
+          <p className={style.newsPublication}>{publication.toUpperCase()}</p>
+        )}
+      </div>
+      <p className={style.newsDescription}>{description.slice(0, 200)}</p>
     </div>
   );
-}   
+}
 
 export default NewsEntry;
