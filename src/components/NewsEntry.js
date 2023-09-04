@@ -24,7 +24,9 @@ function NewsEntry({
           <p className={style.newsPublication}>{publication.toUpperCase()}</p>
         )}
       </div>
-      <p className={style.newsDescription}>{description.slice(0, 200)}</p>
+      {description && (
+        <p className={style.newsDescription}>{description.slice(0, 200)}</p>
+      )}
     </div>
   );
 }
