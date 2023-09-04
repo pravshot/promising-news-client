@@ -4,15 +4,18 @@ import SearchBar from "./components/SearchBar";
 import DateSelection from "./components/DateSelection";
 import { getNewsWithParams } from "./api";
 import formatTimePeriodToDate from "./utilities/helperFunctions";
+import { CircularProgress } from "@mui/material";
 import style from "./App.module.css";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true); // for loading animation
   const [articles, setArticles] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [timePeriod, setTimePeriod] = useState(1); // days ago from today
 
   useEffect(() => {
     const fetchArticles = async () => {
+      setIsLoading(true);
       // get news articles from the server
       try {
         const results = await getNewsWithParams({
@@ -23,6 +26,7 @@ function App() {
       } catch (error) {
         console.log(error);
       }
+      setIsLoading(false);
     };
     fetchArticles();
   }, [timePeriod]);
@@ -43,18 +47,25 @@ function App() {
         </div>
       </header>
       <main className={style.appMain}>
-        <News
-          articles={articles.filter(
-            (article) =>
-              article.title.toLowerCase().includes(searchQuery) ||
-              (article.author &&
-                article.author.toLowerCase().includes(searchQuery)) ||
-              (article.publication &&
-                article.publication.toLowerCase().includes(searchQuery)) ||
-              (article.description &&
-                article.description.toLowerCase().includes(searchQuery))
-          )}
-        />
+        {isLoading ? (
+          <>
+            <br />
+            <CircularProgress sx={{ color: "#fdcc0a" }} />
+          </>
+        ) : (
+          <News
+            articles={articles.filter(
+              (article) =>
+                article.title.toLowerCase().includes(searchQuery) ||
+                (article.author &&
+                  article.author.toLowerCase().includes(searchQuery)) ||
+                (article.publication &&
+                  article.publication.toLowerCase().includes(searchQuery)) ||
+                (article.description &&
+                  article.description.toLowerCase().includes(searchQuery))
+            )}
+          />
+        )}
       </main>
     </div>
   );

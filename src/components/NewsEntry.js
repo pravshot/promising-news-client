@@ -1,5 +1,8 @@
 import style from "./NewsEntry.module.css";
 
+const placeholderImage =
+  "https://cdn1.iconfinder.com/data/icons/business-company-1/500/image-1024.png";
+
 function NewsEntry({
   title,
   author,
@@ -12,7 +15,7 @@ function NewsEntry({
   return (
     <div className={style.newsEntry} onClick={() => window.open(url, "_blank")}>
       <img
-        src={image_url || "client/public/placeholder-image.jpg"}
+        src={image_url || placeholderImage}
         alt={title}
         className={style.newsImage}
       />
