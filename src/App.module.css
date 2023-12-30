@@ -14,8 +14,8 @@
   z-index: 10000;
   padding: 0.5em 1em;
   height: 6vh;
-  border-image: linear-gradient(to right, gray, lightblue) 1;
-  border-bottom: 2px solid;
+  /* border-image: linear-gradient(to right, gray, lightblue) 1; */
+  border-bottom: 1px solid lightgray;
 }
 
 .headerTitle {
