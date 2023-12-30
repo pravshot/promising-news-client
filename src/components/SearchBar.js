@@ -1,21 +1,16 @@
-import { Container, InputAdornment, TextField } from "@mui/material";
+import { InputAdornment, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import style from "./SearchBar.module.css";
 
 function SearchBar({ query, setQuery }) {
   return (
-    <Container>
+    <div className={style.searchBarContainer}>
       <TextField
+        fullWidth
         id="search-bar"
         variant="outlined"
         value={query}
         onChange={(e) => setQuery(e.target.value.toLowerCase())}
-        sx={{
-          backgroundColor: "#403c3c",
-          borderColor: "#fdcc0a",
-          borderWidth: "1px",
-          borderStyle: "solid",
-          borderRadius: "5px",
-        }}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
@@ -23,14 +18,12 @@ function SearchBar({ query, setQuery }) {
             </InputAdornment>
           ),
           style: {
-            color: "#ffffe4",
-            fontSize: "18px",
-            fontFamily: "Georgia",
-            // fontWeight: "bold",
+            fontSize: "1em",
+            height: "5.75vh",
           },
         }}
       />
-    </Container>
+    </div>
   );
 }
 

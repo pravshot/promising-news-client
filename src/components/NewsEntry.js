@@ -1,7 +1,7 @@
 import style from "./NewsEntry.module.css";
+import { useState } from "react";
 
-const placeholderImage =
-  "https://cdn1.iconfinder.com/data/icons/business-company-1/500/image-1024.png";
+const placeholderImage = "imagenotfound.jpg";
 
 function NewsEntry({
   title,
@@ -12,23 +12,40 @@ function NewsEntry({
   image_url,
   publication,
 }) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const formatedTitle = title.split(" - ").slice(0, -1).join(" - ");
+  const formatedPublication = publication
+    ? publication.toUpperCase()
+    : title.split(" - ").slice(-1).toUpperCase();
   return (
-    <div className={style.newsEntry} onClick={() => window.open(url, "_blank")}>
+    <div
+      className={style.newsEntry}
+      onClick={() => window.open(url, "_blank")}
+      onMouseEnter={() => {
+        setIsHovered(true);
+      }}
+      onMouseLeave={() => {
+        setIsHovered(false);
+      }}
+    >
       <img
         src={image_url || placeholderImage}
         alt={title}
         className={style.newsImage}
       />
-      <h2 className={style.newsTitle}>{title}</h2>
-      <div className={style.newsInfo}>
-        {author && <p className={style.newsAuthor}>{author}</p>}
-        <p className={style.newsDate}>{date.slice(5)}</p>
-        {publication && (
-          <p className={style.newsPublication}>{publication.toUpperCase()}</p>
-        )}
-      </div>
-      {description && (
-        <p className={style.newsDescription}>{description.slice(0, 200)}</p>
+      {!isHovered ? (
+        <h2 className={style.newsTitle}>{formatedTitle}</h2>
+      ) : (
+        <div className={style.newsInfo}>
+          <h2>{formatedTitle}</h2>
+          <p className={style.newsDatePublication}>
+            {formatedPublication + " " + date.slice(5)}
+          </p>
+          {description && (
+            <p className={style.newsDescription}>{description.slice(0, 300)}</p>
+          )}
+        </div>
       )}
     </div>
   );

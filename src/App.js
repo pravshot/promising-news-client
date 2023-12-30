@@ -38,19 +38,17 @@ function App() {
           Promising News
           <br />
           <small className={style.headerDesc}>
-            Find positive news articles!
+            Click an article to learn more!
           </small>
         </div>
-        <div className={style.headerSearch}>
-          <SearchBar query={searchQuery} setQuery={setSearchQuery} />
-          <DateSelection date={timePeriod} setDate={setTimePeriod} />
-        </div>
+        <SearchBar query={searchQuery} setQuery={setSearchQuery} />
+        <DateSelection date={timePeriod} setDate={setTimePeriod} />
       </header>
       <main className={style.appMain}>
         {isLoading ? (
           <>
             <br />
-            <CircularProgress sx={{ color: "#fdcc0a" }} />
+            <CircularProgress />
           </>
         ) : (
           <News

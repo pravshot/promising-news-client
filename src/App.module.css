@@ -1,45 +1,47 @@
 .app {
-  background-color: #282e30;
-  color:#fdcc0a;
+  background-color: white;
+  color: black;
   min-height: 100vh;
   width: 100%;
 }
 
 .appHeader {
-  min-height: 10vh;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  font-size: calc(12px + 2vmax);
-  color: inherit;
-  padding-left: 5vh;
-  padding-right: 5vh;
-  padding-top: 2vh;
+  display: inline-block;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: white;
+  z-index: 10000;
+  padding: 0.5em 1em;
+  height: 6vh;
+  border-image: linear-gradient(to right, gray, lightblue) 1;
+  border-bottom: 2px solid;
 }
 
 .headerTitle {
   text-align: center;
-  align-items: center;
-  align-content: center;
-}
-
-.headerSearch {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-right: 5vh;
+  position: relative;
+  display: inline-block;
+  left: 0;
+  top: 0;
+  font-size: 1.5em;
+  line-height: 90%;
+  width: fit-content;
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
 }
 
 .headerDesc {
-  font-size: calc(5px + 1vmax);
-  color: inherit;
+  font-size: 0.5em;
   font-style: italic;
+  font-weight: normal;
 }
 
 .appMain {
+  display: block;
+  margin-top: 8vh;
+  padding: 1vh 0 0 0;
+  /* min-height: 100%; */
   text-align: center;
-  margin: 0px;
-  padding: 0px;
-  color: #ffffe4;
-  min-height: 100%;
 }

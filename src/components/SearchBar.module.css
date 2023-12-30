@@ -1,0 +1,10 @@
+.searchBarContainer {
+  /* margin: auto; */
+  width: 40%;
+  display: inline-block;
+  height: 100%;
+  position: absolute;
+  left: 30%;
+  margin: 0;
+  padding: 0;
+}

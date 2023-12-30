@@ -1,0 +1,6 @@
+.dateSelection {
+  display: inline-block;
+  position: absolute;
+  right: 3em;
+  width: fit-content;
+}
