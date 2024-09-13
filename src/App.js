@@ -34,12 +34,13 @@ function App() {
   return (
     <div className={style.app}>
       <header className={style.appHeader}>
-        <div className={style.headerTitle}>
-          Promising News
-          <br />
-          <small className={style.headerDesc}>
-            Click an article to learn more!
-          </small>
+        <div className={style.logo}>
+          <img
+            src="newsicon.png"
+            alt="News Icon Logo"
+            className={style.newsIcon}
+          />
+          <h2>PROMISING NEWS</h2>
         </div>
         <SearchBar query={searchQuery} setQuery={setSearchQuery} />
         <DateSelection date={timePeriod} setDate={setTimePeriod} />
@@ -48,7 +49,7 @@ function App() {
         {isLoading ? (
           <>
             <br />
-            <CircularProgress />
+            <CircularProgress color="success" />
           </>
         ) : (
           <News

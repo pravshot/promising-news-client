@@ -16,9 +16,11 @@ function DateSelection({ date, setDate }) {
         onChange={(e) => setDate(e.target.value)}
         label="Date"
         variant="outlined"
+        color="success"
         sx={{
-          height: "5.75vh",
           fontSize: "1em",
+          height: "40px",
+          backgroundColor: "#fff",
         }}
       >
         {Object.keys(dateOptions).map((key) => (

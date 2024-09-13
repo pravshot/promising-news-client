@@ -1,6 +1,5 @@
 .dateSelection {
-  display: inline-block;
-  position: absolute;
-  right: 3em;
-  width: fit-content;
+  display: flex;
+  align-items: center;
+  margin-right: 1em;
 }

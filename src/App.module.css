@@ -6,36 +6,33 @@
 }
 
 .appHeader {
-  display: inline-block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   position: fixed;
   top: 0;
-  background-color: white;
-  z-index: 10000;
-  padding: 0.5em 1em;
-  height: 6vh;
-  /* border-image: linear-gradient(to right, gray, lightblue) 1; */
-  border-bottom: 1px solid lightgray;
-}
-
-.headerTitle {
-  text-align: center;
-  position: relative;
-  display: inline-block;
   left: 0;
-  top: 0;
-  font-size: 1.5em;
-  line-height: 90%;
-  width: fit-content;
-  padding: 0;
-  margin: 0;
-  font-weight: bold;
+  padding: 0.5em 0;
+  /* background-color: #388e3c; */
+  background: linear-gradient(45deg, #388e3c, #81c784);
+  z-index: 10000;
+  height: 40px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* border-image: linear-gradient(to right, gray, lightgreen) 2; */
 }
 
-.headerDesc {
-  font-size: 0.5em;
-  font-style: italic;
-  font-weight: normal;
+.logo {
+  display: flex;
+  align-items: center;
+  margin-left: 1em;
+  white-space: nowrap;
+  color: #fff;
+}
+
+.newsIcon {
+  height: 35px;
+  width: 35px;
 }
 
 .appMain {

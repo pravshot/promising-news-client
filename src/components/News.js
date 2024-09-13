@@ -18,7 +18,7 @@ function News({ articles }) {
       ))}
     </div>
   ) : (
-    <h2>No articles found😔</h2>
+    <h2>No articles found. Try changing the search.</h2>
   );
 }
 
